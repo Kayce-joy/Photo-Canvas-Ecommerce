@@ -1,0 +1,146 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container py-5">
+  <div class="row justify-content-center">
+    <div class="col-md-8">
+      <!-- Card -->
+      <div class="card shadow-lg" style="border-radius: 1rem;">
+        <div class="card-body text-center">
+          <!-- Avatar -->
+          <div class="avatar-circle mb-4 mx-auto">
+            <span class="initials">{{ user.first_name|default:user.username|slice:":1"|upper }}</span>
+          </div>
+
+          <!-- User Details -->
+<div class="user-details mb-4">
+  <h3 class="mb-1 fw-bold">{{ user.first_name|default:user.username }}</h3>
+  <p class="text-muted mb-4">{{ user.email }}</p>
+</div>
+
+<!-- Edit Form -->
+<div class="edit-profile">
+  <div class="card bg-light p-4 shadow-sm">
+    <h5 class="mb-3 text-primary fw-semibold">Edit Your Profile</h5>
+    <form method="POST">
+      {% csrf_token %}
+      <div class="form-group mb-3">
+        {{ form.as_p }}
+      </div>
+      <button type="submit" name="edit_profile" class="btn btn-primary btn-block">Save Changes</button>
+    </form>
+  </div>
+</div>
+
+          <!-- Delete Profile -->
+          <h5 class="mt-5 text-danger">Danger Zone</h5>
+          <form method="POST" class="mt-3">
+            {% csrf_token %}
+            <button type="submit" name="delete_profile" class="btn btn-danger btn-lg">Delete Profile</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Avatar Circle Styling -->
+<style>
+  .avatar-circle {
+    width: 120px;
+    height: 120px;
+    background-color: #478fe1; /* Bootstrap Primary Color */
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 36px;
+    font-weight: bold;
+  }
+
+  .initials {
+    text-transform: uppercase;
+  }
+
+  .btn-primary {
+    background-color: #478fe1; /* Matches avatar color */
+    border: none;
+  }
+
+  .btn-primary:hover {
+    background-color: #0056b3; /* Slightly darker blue */
+  }
+
+  .btn-danger {
+    background-color: #f35361; /* Bootstrap Danger Color */
+    border: none;
+  }
+
+  .btn-danger:hover {
+    background-color: #b02a37; /* Slightly darker red */
+  }
+
+  .text-danger {
+    color: #dc3545 !important;
+  }
+
+  .card {
+    border: none;
+  }
+
+
+/* User Details */
+.user-details {
+  text-align: center;
+
+}
+
+/* Edit Profile */
+.edit-profile {
+  display: flex; /* Align the card inline */
+  justify-content: center; /* Center align */
+  gap: 1rem; /* Space between forms */
+  flex-wrap: wrap; /* Allow wrapping on smaller screens */
+}
+
+.edit-profile .card {
+  flex: 1; /* Equal width for each form */
+  max-width: 400px; /* Limit the width */
+  border-radius: 1rem;
+  padding: 1rem;
+    font-weight: bold;
+}
+
+.edit-profile h5 {
+  font-size: 1.2rem;
+  color: #007bff;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+/* Buttons */
+.btn-primary {
+  background-color: #33a6f4;
+  border: none;
+  border-radius: 0.5rem;
+  padding: 0.5rem 1.5rem;
+  font-size: 1rem;
+  transition: background-color 0.3s ease;
+  width: 100%; /* Full-width button for consistency */
+}
+
+.btn-primary:hover {
+  background-color: #0056b3;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .edit-profile {
+    flex-direction: column; /* Stack cards vertically */
+    gap: 1rem; /* Space between stacked forms */
+  }
+}
+
+
+</style>
+{% endblock %}

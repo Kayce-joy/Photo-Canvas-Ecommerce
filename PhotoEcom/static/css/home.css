@@ -1,0 +1,143 @@
+body {
+    font-family: Bahnschrift;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+}
+
+header {
+    background-color: #2c3e50;
+    color: #ecf0f1;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+
+}
+
+/* Navigation Styles */
+nav a {
+    margin: 0 15px;
+    color: #3498db;
+    font-weight: 700;
+    text-decoration: none;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+nav a:hover {
+    color: #1abc9c;
+    transform: scale(1.1);
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.nav-links a {
+    margin: 0 10px;
+    color: white;
+    text-decoration: none;
+}
+
+.hero-section {
+
+     /* Add background image */
+    background-image: url('/static/img/canv back.jpg');  /* Replace with your image path */
+    background-size: cover; /* Ensure the image covers the entire section */
+    background-position: center center; /* Center the image */
+    background-repeat: no-repeat; /* Prevent the image from repeating */
+
+    /* Set the section's height */
+    height: 300px; /* Adjust as needed */
+
+    /* Flexbox to align text to the right */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-end; /* Aligns the text to the right */
+    text-align: right; /* Aligns the text inside the container to the right */
+    padding: 20px 65px; /* Optional padding for spacing */
+    color: white; /* Text color for visibility on dark backgrounds */
+    margin-bottom: -50px;
+
+
+}
+
+.hero-section h1 {
+    font-size: 2.5rem;
+    color: white;
+    margin-bottom: 10px;
+
+}
+
+.hero-section p {
+    margin-bottom: 20px;
+    font-size: 1rem;
+    color: white;
+
+}
+
+.cta-button {
+    display: inline-block;
+    background-color: transparent;  /* Remove the blue background */
+    color: white;  /* Keep the text color white */
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-weight: bold;
+    text-decoration: none;
+    border: 2px solid white;  /* Add a white border around the button */
+    transition: all 0.3s ease;  /* Optional: add transition for hover effect */
+}
+
+.cta-button:hover {
+    background-color: #3498db;  /* Change background to white on hover */
+    color: white;  /* Change text color to blue on hover */
+}
+
+
+.featured-products {
+    margin-top: -28px;
+    text-align: center;
+    background-color: #ccdde6;
+
+
+}
+
+.featured-products h2 {
+
+    font-size: 2rem;
+    color: #34495e;
+}
+
+.featured-products p {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    font-size: 20px;
+    color: #555;
+}
+
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 100px;
+}
+
+.product-card {
+    background-color: #ffffff;
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.product-card img {
+    width: 100%;
+    border-radius: 5px;
+}
+
+.product-card p {
+    margin-top: 20px;
+    font-weight: bold;
+    color: #333;
+
+}

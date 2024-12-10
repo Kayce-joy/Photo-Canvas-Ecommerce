@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<h1 style="text-align: center; color: #34495e;">Welcome to my photo canvas<br> Photo Categories</h1>
+<div class="photo-gallery">
+    {% for photo in photos %}
+        <div class="photo-item">
+            <img src="{{ photo.image.url }}" alt="{{ photo.title }}">
+            <div class="photo-details">
+                <h2>{{ photo.title }}</h2>
+                <p>{{ photo.description }}</p>
+                <p class="price">Price: ksh{{ photo.price }}</p>
+                <a href="{% url 'photo_details' photo.id %}" class="view-details">View Details</a>
+            </div>
+        </div>
+    {% endfor %}
+</div>
+
+{% endblock %}

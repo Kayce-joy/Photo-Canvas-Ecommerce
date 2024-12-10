@@ -1,0 +1,53 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Photo E-Commerce</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+
+    <link rel="stylesheet" href="{% static 'assets/vendor/bootstrap/css/bootstrap.min.css' %}">
+    <script src="{% static 'assets/vendor/bootstrap/js/bootstrap.min.js' %}"></script>
+</head>
+<body>
+   <header>
+    <nav>
+        <a href="{% url 'about' %}">Home</a>
+        <a href="{% url 'home' %}">Shop</a>
+        <a href="#contact">Contact Us</a>
+
+        {% if user.is_authenticated %}
+            <a href="{% url 'cart' %}">Cart</a>
+            <a href="{% url 'book_photoshoot' %}">Book Photoshoot</a>
+            <a href="{% url 'profile' %}">My Profile</a>
+            {% if user.is_staff %}  <!-- Check if the user is staff/admin -->
+                <a href="{% url 'custom_admin' %}">Admin</a>
+            {% endif %}
+            <a href="{% url 'logout' %}">Logout</a>
+        {% else %}
+            <a href="{% url 'login' %}">Login</a>
+            <a href="{% url 'register' %}">Register</a>
+        {% endif %}
+    </nav>
+</header>
+    <main>
+        {% block content %}{% endblock %}
+    </main>
+
+ <footer id="contact">
+    <h3>Contact Us</h3>
+    <p>If you have any questions, feel free to reach out to us!</p>
+    <p>Email: <a href="wakarijoyce@gmaiil.com">wakarijoyce@gmail.com</a></p>
+    <p>Phone: <a href="tel:+254 113 011 905">+254 113 011 905</a></p>
+    <p>Follow us on social media:</p>
+    <p>
+        <a href="https://www.facebook.com" target="_blank">Facebook</a> |
+        <a href="https://www.twitter.com" target="_blank">Twitter</a> |
+        <a href="https://www.instagram.com" target="_blank">Instagram</a>
+    </p>
+</footer>
+
+</body>
+</html>

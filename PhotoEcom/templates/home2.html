@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+{% block content %}
+{% load static %}
+
+    {% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/home.css' %}">
+{% endblock %}
+<!-- Main Content -->
+    <main>
+        <section class="hero-section" style="border-radius: 0px">
+            <h1>Decorate Your Home With Us</h1>
+            <p>Explore options to bring the best out of your living space with our stunning<br> and affordable wall canvas.</p>
+            <br>
+            <a href="{% url 'home' %}" class="cta-button">Shop Now</a>
+        </section>
+
+        <!-- Featured Products -->
+        <section class="featured-products" style="margin-top: 50px">
+            <h2><br>Featured Products</h2>
+            <p>Explore a wide range of carefully selected canvases to decorate your home with style and elegance. </p>
+            <br>
+            <div class="product-grid" style="margin-left: 50px; margin-right: 50px; margin-bottom: 50px" >
+                <div class="product-card" style="margin-bottom: 50px">
+                    <img src="{% static 'img/images (12).jpg' %}" alt="Wall Coverage">
+                    <p>Wall Coverage</p>
+                </div>
+                <div class="product-card" style="margin-bottom: 50px">
+                    <img src="{% static 'img/images (6).jpg' %}" alt="Layered Design">
+                    <p>Layered Design</p>
+                </div>
+                <div class="product-card" style="margin-bottom: 50px">
+                    <img src="{% static 'img/images (2).jpg' %}" alt="Medium and Small Coverage">
+                    <p>Medium and Small Coverage</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+
+
+{% endblock %}
